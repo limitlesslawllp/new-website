@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any exist in the future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location (update with your actual domain)
+# Sitemap: https://www.yourdomain.com/sitemap.xml
+

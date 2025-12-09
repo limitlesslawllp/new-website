@@ -1,0 +1,16 @@
+# Jekyll Configuration for GitHub Pages
+# This enables clean URLs without .html extensions
+# Custom permalink removes .html and trailing slashes
+permalink: /:title
+
+# Exclude files from Jekyll processing
+exclude:
+  - README.md
+  - SECURITY_ASSESSMENT.md
+  - .git
+  - .gitignore
+
+# Jekyll settings
+markdown: kramdown
+highlighter: rouge
+

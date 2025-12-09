@@ -1,0 +1,996 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #d4af37;
+    --accent-dark: #b8941f;
+    --text-dark: #1a1a2e;
+    --text-light: #666;
+    --text-white: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo-img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--text-white);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--accent-color);
+}
+
+.nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.btn-call {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-call:hover {
+    background-color: var(--accent-dark);
+    color: var(--text-white);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-white);
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-white);
+    padding: 8rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-logo-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.hero-logo-watermark img {
+    width: 500px;
+    height: auto;
+    max-width: 90vw;
+    filter: brightness(0) invert(1);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a1a2e" width="1200" height="600"/><path d="M0,300 Q300,200 600,300 T1200,300" stroke="%23d4af37" stroke-width="2" fill="none" opacity="0.1"/></svg>');
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-white);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.feature-badge {
+    background-color: rgba(212, 175, 55, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: 1px solid var(--accent-color);
+    font-size: 0.9rem;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-dark);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-white);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    display: inline-block;
+    border: 2px solid var(--text-white);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-white);
+    color: var(--primary-color);
+}
+
+/* Quick Contact Bar */
+.quick-contact {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 2rem 0;
+}
+
+.quick-contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.quick-contact-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Practice Areas Overview */
+.practice-areas-overview {
+    padding: 5rem 0;
+    background-color: var(--bg-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.practice-card {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+}
+
+.practice-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.practice-icon i {
+    font-size: 3rem;
+}
+
+.practice-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.practice-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.practice-link {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+    padding: 5rem 0;
+    background-color: var(--bg-white);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    padding: 2rem;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    position: relative;
+}
+
+.feature-number {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.feature-item h3 {
+    margin-top: 1rem;
+    color: var(--primary-color);
+}
+
+.feature-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-white);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-white);
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo {
+    margin-bottom: 1rem;
+}
+
+.footer-logo img {
+    width: 120px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--text-white);
+    opacity: 0.8;
+}
+
+.footer-section a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    max-width: 800px;
+    margin: 1rem auto 0;
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-white);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* About Page */
+.about-content {
+    padding: 4rem 0;
+}
+
+.about-intro {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.about-intro h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.about-intro p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.attorneys-section {
+    margin-bottom: 4rem;
+}
+
+.attorneys-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.attorney-card {
+    background-color: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+}
+
+.attorney-info h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.attorney-title {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.attorney-bio {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.attorney-contact {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.attorney-contact a {
+    color: var(--accent-color);
+}
+/* makes the frame of the image round */
+.attorney-media {
+    align-self: start;
+    overflow: hidden; /* allow image zoom/crop inside */
+    border-radius: 26px;
+}
+
+.attorney-media img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    background-color: #eee; /* graceful placeholder if image not loaded */
+}
+
+/* Further zoom in and raise the image even higher (focus on the very top) for Eliyahu (first card) */
+.attorneys-grid .attorney-card:first-child .attorney-media img {
+    transform: scale(1.32);
+    transform-origin: center 0%;
+    object-position: center -20px;
+}
+
+/* Adjust Gabriel's image container to prevent top/bottom cropping (second card) */
+.attorneys-grid .attorney-card:nth-child(2) .attorney-media img {
+    transform: scale(1.32);
+    transform-origin: center 0%;
+    object-position: center -20px;
+}
+
+.values-section {
+    margin-bottom: 4rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.value-item {
+    padding: 2rem;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+}
+
+.value-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.value-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.practice-areas-summary {
+    background-color: var(--bg-light);
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+.practice-areas-summary p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.practice-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.practice-list-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.practice-list-item ul {
+    list-style: none;
+}
+
+.practice-list-item ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.practice-list-item ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Practice Areas Detail Page */
+.practice-areas-detail {
+    padding: 4rem 0;
+}
+
+.practice-area-item {
+    margin-bottom: 4rem;
+    padding: 3rem;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.practice-area-content h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.practice-area-content > p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.practice-area-content h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.practice-area-content ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.practice-area-content ul li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.practice-area-content ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Contact Page */
+.contact-content {
+    padding: 4rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-form-section h2,
+.contact-info-section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form-section p,
+.contact-info-section p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+/* Contact Form */
+.contact-form {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* reCAPTCHA styling */
+.form-group .g-recaptcha {
+    margin-bottom: 0.5rem;
+}
+
+.form-group .g-recaptcha > div {
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+    .form-group .g-recaptcha {
+        transform: scale(0.85);
+        transform-origin: 0 0;
+    }
+}
+
+.form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    display: none;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: var(--success-color);
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: var(--error-color);
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Contact Info Cards */
+.contact-info-card {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.contact-info-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.contact-link {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.availability {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.contact-features {
+    list-style: none;
+}
+
+.contact-features li {
+    padding: 0.5rem 0;
+    color: var(--text-light);
+}
+
+/* Map Section */
+.map-section {
+    padding: 4rem 0;
+    background-color: var(--bg-light);
+}
+
+.map-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.map-placeholder {
+    background-color: var(--bg-white);
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px dashed var(--border-color);
+}
+
+.map-placeholder p {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.map-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .attorneys-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .attorney-card {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+}

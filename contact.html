@@ -1,0 +1,216 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Contact Us - Limitless Law Firm</title>
+    <meta name="description" content="Contact Limitless Law Firm for a free consultation. Located in Encino, CA. Call (818) INJURY-5 or email our attorneys.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img class="logo-img" src="assets/logo-transparent.png" alt="Limitless Law Firm logo" loading="lazy">
+                    <h1>Limitless Law Firm</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about">About Us</a></li>
+                    <li><a href="practice-areas">Practice Areas</a></li>
+                    <li><a href="contact" class="active">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="tel:8184658795" class="btn-call">Call (818) INJURY-5</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get Your Free Consultation Today</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>Tell Us About Your Case</h2>
+                    <p>Fill out the form below and we'll get back to you within 24 hours. Your consultation is completely free and confidential.</p>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="case-type">Case Type</label>
+                            <select id="case-type" name="case_type">
+                                <option value="">Select a case type...</option>
+                                <option value="car-accident">Car Accident</option>
+                                <option value="truck-accident">Truck Accident</option>
+                                <option value="motorcycle-accident">Motorcycle Accident</option>
+                                <option value="slip-fall">Slip & Fall</option>
+                                <option value="wrongful-death">Wrongful Death</option>
+                                <option value="brain-injury">Brain Injury</option>
+                                <option value="dog-bite">Dog Bite</option>
+                                <option value="workers-compensation">Workers Compensation</option>
+                                <option value="employment-law">Employment Law</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell Us About Your Case *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6Lfu7AgsAAAAABIaxL4MC01k1ArdiB-0Y6lYizl9"></div>
+                            <small style="color: #666; display: block; margin-top: 0.5rem;">Please complete the reCAPTCHA verification.</small>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn-primary">Submit</button>
+                        </div>
+                        <div id="form-message" class="form-message"></div>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <h2>Get in Touch</h2>
+                    <p>We're available 24/7 to help you. Reach out to us through any of the following methods:</p>
+
+                    <div class="contact-info-card">
+                        <h3>Office Location</h3>
+                        <p>
+                            <strong>Limitless Law Firm</strong><br>
+                            17631 Ventura Blvd #1004<br>
+                            Encino, CA 91316
+                        </p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h3>Phone</h3>
+                        <p>
+                            <a href="tel:8184658795" class="contact-link">(818) INJURY-5</a><br>
+                            <a href="tel:8184658795" class="contact-link">(818) 465-8795</a>
+                        </p>
+                        <p class="availability">Available 24/7</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h3>Email</h3>
+                        <p>
+                            <a href="mailto:Eli@limitlesslawllp.com" class="contact-link">Eli@limitlesslawllp.com</a><br>
+                            <strong>Eliyahu Ohevshalom, Esq.</strong>
+                        </p>
+                        <p>
+                            <a href="mailto:Gabriel@limitlesslawllp.com" class="contact-link">Gabriel@limitlesslawllp.com</a><br>
+                            <strong>Gabriel Dardashti, Esq.</strong>
+                        </p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <h3>Why Choose Us?</h3>
+                        <ul class="contact-features">
+                            <li>✓ Free Consultation</li>
+                            <li>✓ No Fee Unless We Win</li>
+                            <li>✓ 24/7 Availability</li>
+                            <li>✓ Experienced Attorneys</li>
+                            <li>✓ Aggressive Representation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section (Optional - can be replaced with actual Google Maps embed) -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Visit Our Office</h2>
+            <div class="map-placeholder">
+                <p>17631 Ventura Blvd #1004, Encino, CA 91316</p>
+                <p class="map-note">Map integration can be added here with Google Maps API</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/logo-transparent.png" alt="Limitless Law Firm logo">
+                    </div>
+                    <h3>Limitless Law Firm</h3>
+                    <p>Premier California law firm delivering aggressive representation and sophisticated advocacy for California's injury victims and employees.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Practice Areas</h4>
+                    <ul>
+                        <li><a href="practice-areas#car-accidents">Car Accidents</a></li>
+                        <li><a href="practice-areas#truck-accidents">Truck Accidents</a></li>
+                        <li><a href="practice-areas#motorcycle-accidents">Motorcycle Accidents</a></li>
+                        <li><a href="practice-areas#slip-fall">Slip & Fall</a></li>
+                        <li><a href="practice-areas#wrongful-death">Wrongful Death</a></li>
+                        <li><a href="practice-areas#brain-injury">Brain Injury</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More Practice Areas</h4>
+                    <ul>
+                        <li><a href="practice-areas#dog-bites">Dog Bites</a></li>
+                        <li><a href="practice-areas#workers-compensation">Workers Compensation</a></li>
+                        <li><a href="practice-areas#employment-law">Employment Law</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><strong>Address:</strong><br>17631 Ventura Blvd #1004<br>Encino, CA 91316</p>
+                    <p><strong>Phone:</strong><br><a href="tel:8184658795">(818) INJURY-5</a><br><a href="tel:8184658795">(818) 465-8795</a></p>
+                    <p><strong>Email:</strong><br><a href="mailto:Eli@limitlesslawllp.com">Eli@limitlesslawllp.com</a><br><a href="mailto:Gabriel@limitlesslawllp.com">Gabriel@limitlesslawllp.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Limitless Law Firm. All rights reserved. | <a href="privacy-policy" style="color: var(--accent-color);">Privacy Policy</a></p>
+                <p class="disclaimer">The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
