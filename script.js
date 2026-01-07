@@ -152,29 +152,15 @@ document.addEventListener('DOMContentLoaded', function() {
             )
             .then(function(response) {
                 console.log('Success!', response.status, response.text);
-                console.log('About to check for conversion tracking...'); // ADD THIS LINE
 
-                // ✅ GOOGLE ADS CONVERSION (fires once, only on success)
-                // Use dataLayer directly to ensure it works even if gtag.js hasn't fully loaded
-                console.log('window.dataLayer exists?', !!window.dataLayer); // ADD THIS LINE
-                console.log('gtag function exists?', typeof gtag === 'function'); // ADD THIS LINE
-                
-                if (window.dataLayer) {
-                    console.log('Pushing conversion event to dataLayer...');
-                    window.dataLayer.push({
-                        'event': 'conversion',
-                        'send_to': 'AW-17812504236/XbUiCJ2Fh9MbEKz91K1C'
-                    });
-                    console.log('Conversion event pushed!', window.dataLayer);
-                } else if (typeof gtag === 'function') {
-                    console.log('Using gtag fallback...');
-                    // Fallback to gtag if dataLayer isn't available but gtag is
+                // ✅ Google Ads Conversion
+                if (typeof gtag === 'function') {
                     gtag('event', 'conversion', {
                         'send_to': 'AW-17812504236/XbUiCJ2Fh9MbEKz91K1C'
                     });
-                    console.log('Conversion event sent via gtag!');
+                    console.log('Google Ads conversion fired');
                 } else {
-                    console.error('Neither dataLayer nor gtag available!');
+                    console.error('gtag is not available');
                 }
                 
                 // Show success message
