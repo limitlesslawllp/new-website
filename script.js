@@ -153,16 +153,16 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(function(response) {
                 console.log('Success!', response.status, response.text);
 
-                // ✅ Google Ads Conversion
-                if (typeof gtag === 'function') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-17812504236/XbUiCJ2Fh9MbEKz91K1C'
-                    });
-                    console.log('Google Ads conversion fired');
+                // ✅ GOOGLE ADS CONVERSION (fires once, only on success)
+                // Call gtag_report_conversion function (no URL needed since we're not redirecting)
+                if (typeof gtag_report_conversion === 'function') {
+                    console.log('Firing conversion event via gtag_report_conversion...');
+                    gtag_report_conversion();
+                    console.log('Conversion event sent!');
                 } else {
-                    console.error('gtag is not available');
+                    console.error('gtag_report_conversion function not found!');
                 }
-                
+
                 // Show success message
                 formMessage.textContent = 'Thank you! Your message has been sent successfully. We will contact you within 24 hours.';
                 formMessage.className = 'form-message success';
