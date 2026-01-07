@@ -154,11 +154,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Success!', response.status, response.text);
 
                 // ✅ GOOGLE ADS CONVERSION (fires once, only on success)
-                if (typeof gtag === 'function') {
+                // Use dataLayer directly to ensure it works even if gtag.js hasn't fully loaded
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        'event': 'conversion',
+                        'send_to': 'AW-17812504236/XbUiCJ2Fh9MbEKz91K1C'
+                    });
+                } else if (typeof gtag === 'function') {
+                    // Fallback to gtag if dataLayer isn't available but gtag is
                     gtag('event', 'conversion', {
                         'send_to': 'AW-17812504236/XbUiCJ2Fh9MbEKz91K1C'
                     });
                 }
+                
                 // Show success message
                 formMessage.textContent = 'Thank you! Your message has been sent successfully. We will contact you within 24 hours.';
                 formMessage.className = 'form-message success';
