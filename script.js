@@ -156,15 +156,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 // ✅ GOOGLE ADS CONVERSION (fires once, only on success)
                 // Use dataLayer directly to ensure it works even if gtag.js hasn't fully loaded
                 if (window.dataLayer) {
+                    console.log('Pushing conversion event to dataLayer...');
                     window.dataLayer.push({
                         'event': 'conversion',
                         'send_to': 'AW-17812504236/XbUiCJ2Fh9MbEKz91K1C'
                     });
+                    console.log('Conversion event pushed!', window.dataLayer);
                 } else if (typeof gtag === 'function') {
+                    console.log('Using gtag fallback...');
                     // Fallback to gtag if dataLayer isn't available but gtag is
                     gtag('event', 'conversion', {
                         'send_to': 'AW-17812504236/XbUiCJ2Fh9MbEKz91K1C'
                     });
+                    console.log('Conversion event sent via gtag!');
+                } else {
+                    console.error('Neither dataLayer nor gtag available!');
                 }
                 
                 // Show success message
