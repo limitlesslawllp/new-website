@@ -152,9 +152,13 @@ document.addEventListener('DOMContentLoaded', function() {
             )
             .then(function(response) {
                 console.log('Success!', response.status, response.text);
+                console.log('About to check for conversion tracking...'); // ADD THIS LINE
 
                 // ✅ GOOGLE ADS CONVERSION (fires once, only on success)
                 // Use dataLayer directly to ensure it works even if gtag.js hasn't fully loaded
+                console.log('window.dataLayer exists?', !!window.dataLayer); // ADD THIS LINE
+                console.log('gtag function exists?', typeof gtag === 'function'); // ADD THIS LINE
+                
                 if (window.dataLayer) {
                     console.log('Pushing conversion event to dataLayer...');
                     window.dataLayer.push({
