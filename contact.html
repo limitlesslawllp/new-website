@@ -19,6 +19,22 @@
         gtag('config', 'AW-17812504236'); 
     </script>
     
+    <!-- Event snippet for Submit lead form conversion -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17812504236/2ppKCI_92d4bEKz91K1C',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+    
     <title>Contact Us - Limitless Law Firm</title>
     <meta name="description" content="Contact Limitless Law Firm for a free consultation. Located in Encino, CA. Call (818) INJURY-5 or email our attorneys.">
     <link rel="stylesheet" href="styles.css">
