@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Rate limiting to prevent spam submissions
     let lastSubmissionTime = 0;
-    const MIN_SUBMISSION_INTERVAL = 20000; // 20 seconds between submissions
+    const MIN_SUBMISSION_INTERVAL = 60000; // 60 seconds between submissions
 
     // Contact Form with EmailJS
     const contactForm = document.getElementById('contact-form');
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Validate all inputs
             if (!validateName(rawData.name)) {
-                formMessage.textContent = 'Please enter a valid name (at least 2 characters, letters only).';
+                formMessage.textContent = 'Please enter a valid name.';
                 formMessage.className = 'form-message error';
                 submitButton.disabled = false;
                 submitButton.textContent = originalButtonText;
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (!validateMessage(rawData.message)) {
-                formMessage.textContent = 'Please enter a message (between 10 and 5000 characters).';
+                formMessage.textContent = 'Please enter a message (between 260 and 5000 characters).';
                 formMessage.className = 'form-message error';
                 submitButton.disabled = false;
                 submitButton.textContent = originalButtonText;
@@ -248,14 +248,14 @@ function validatePhone(phone) {
 function validateName(name) {
     if (!name || typeof name !== 'string') return false;
     const trimmed = name.trim();
-    // Name should be at least 2 characters, max 100, and contain only letters, spaces, hyphens, and apostrophes
-    return trimmed.length >= 2 && trimmed.length <= 100 && /^[a-zA-Z\s\-']+$/.test(trimmed);
+    // Name should be at least 4 characters, max 100, and contain only letters, spaces, hyphens, and apostrophes
+    return trimmed.length >= 4 && trimmed.length <= 100 && /^[a-zA-Z\s\-']+$/.test(trimmed);
 }
 
 function validateMessage(message) {
     if (!message || typeof message !== 'string') return false;
     const trimmed = message.trim();
-    // Message should be at least 10 characters, max 5000
-    return trimmed.length >= 10 && trimmed.length <= 5000;
+    // Message should be at least 260 characters, max 5000
+    return trimmed.length >= 260 && trimmed.length <= 5000;
 }
 
